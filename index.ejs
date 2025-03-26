@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord Bot Dashboard</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <h1>Üdvözöllek a <%= botName %> Dashboardján!</h1>
+        <h1><i class="fab fa-discord"></i> <%= botName %> Dashboard</h1>
         <% if (user) { %>
             <p>Bejelentkezve mint: <%= user.username %></p>
             <a href="/dashboard">Dashboard</a>
             <a href="/logout">Kijelentkezés</a>
         <% } else { %>
-            <a href="/login">Bejelentkezés Discorddal</a>
+            <a href="/login"><i class="fas fa-sign-in-alt"></i> Bejelentkezés Discorddal</a>
         <% } %>
     </header>
-    
+
     <section class="info">
         <h2>Bot Statisztikák</h2>
-        <p>Szerverek száma: <%= servers %></p>
-        <p>Felhasználók száma: <%= users %></p>
+        <p><i class="fas fa-server"></i> Szerverek: <%= servers %></p>
+        <p><i class="fas fa-users"></i> Felhasználók: <%= users %></p>
     </section>
 
     <footer>
