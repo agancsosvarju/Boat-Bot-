@@ -3,46 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Bot – A legjobb botod!</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <link rel="icon" href="bot-icon.png">
+    <title>Discord Bot Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-    <!-- Hero Szekció -->
-    <section class="hero">
-        <div class="container">
-            <h1>🌟 A **LEGJOBB DISCORD BOT**</h1>
-            <p>Automatizálás, moderáció és egyedi funkciók egyetlen botban.</p>
-            <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&permissions=8&scope=bot" class="btn primary">🚀 Meghívás a szerverre</a>
-            <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO" class="btn secondary">💻 GitHub Repo</a>
-        </div>
+    <header>
+        <h1>Üdvözöllek a <%= botName %> Dashboardján!</h1>
+        <% if (user) { %>
+            <p>Bejelentkezve mint: <%= user.username %></p>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Kijelentkezés</a>
+        <% } else { %>
+            <a href="/login">Bejelentkezés Discorddal</a>
+        <% } %>
+    </header>
+    
+    <section class="info">
+        <h2>Bot Statisztikák</h2>
+        <p>Szerverek száma: <%= servers %></p>
+        <p>Felhasználók száma: <%= users %></p>
     </section>
 
-    <!-- Funkciók Szekció -->
-    <section class="features">
-        <div class="container">
-            <h2>🔥 **Amit a bot tud**</h2>
-            <div class="feature-box">
-                <h3>⚡ Automatikus Moderáció</h3>
-                <p>Intelligens moderátor rendszer figyelmeztetésekkel.</p>
-            </div>
-            <div class="feature-box">
-                <h3>🎵 Zenelejátszás</h3>
-                <p>Spotify és YouTube támogatás a szervereden.</p>
-            </div>
-            <div class="feature-box">
-                <h3>📊 Statisztikák</h3>
-                <p>Automatikus felhasználói aktivitásfigyelés.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lábjegyzet -->
     <footer>
-        <p>© 2025 - A Te Discord Botod | <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO">Forráskód</a></p>
+        <p>© 2024 <%= botName %> | Készítette: Te</p>
     </footer>
-
 </body>
 </html>
