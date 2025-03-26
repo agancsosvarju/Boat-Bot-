@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Beállítások</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Discord Bot Beállítások</h1>
+        <p>Bejelentkezve mint: <%= user.username %></p>
+        <a href="/logout">Kijelentkezés</a>
+    </header>
+
+    <section class="settings">
+        <h2>Válaszd ki a szerveredet</h2>
+        <form action="/update-settings" method="POST">
+            <label for="server">Szerver:</label>
+            <select name="server" id="server">
+                <% guilds.forEach(guild => { %>
+                    <option value="<%= guild.id %>"><%= guild.name %></option>
+                <% }) %>
+            </select>
+
+            <h3>Bot Beállítások</h3>
+            <label for="prefix">Parancs prefix:</label>
+            <input type="text" name="prefix" id="prefix" value="<%= settings.prefix %>">
+
+            <label for="welcomeMessage">Üdvözlő üzenet:</label>
+            <input type="text" name="welcomeMessage" id="welcomeMessage" value="<%= settings.welcomeMessage %>">
+
+            <button type="submit">Beállítások Mentése</button>
+        </form>
+    </section>
+</body>
+</html>
